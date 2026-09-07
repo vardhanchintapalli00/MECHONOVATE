@@ -134,7 +134,7 @@ if (registerLink && GOOGLE_FORM_URL) {
 } else if (registerLink) {
   registerLink.addEventListener('click', (e) => {
     e.preventDefault();
-    alert('Registration link is not set up yet — add your Google Form URL in js/main.js (GOOGLE_FORM_URL) or as the href on #register-link.');
+    alert('Registrations Opens Soon'); //add your Google Form URL in js/main.js (GOOGLE_FORM_URL) or as the href on #register-link.
   });
 }
 
