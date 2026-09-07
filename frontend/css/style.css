@@ -357,14 +357,18 @@
   .milestone:last-child{border-bottom:none;}
   .milestone .m-day{font-family:'IBM Plex Mono'; color:var(--amber); font-size:0.85rem;}
   .milestone .m-title{color:var(--silver); font-weight:500;}
-  .milestone .m-time{font-family:'IBM Plex Mono'; font-size:0.8rem; color:var(--silver-dim); text-align:right;}
+  .milestone .m-time{
+    font-family:'IBM Plex Mono'; font-size:0.78rem; color:var(--blue);
+    background:rgba(57,198,255,0.12); border:1px solid var(--blue-dim);
+    padding:5px 12px; white-space:nowrap; justify-self:end;
+  }
   @media (max-width:640px){
     .flow-stages{flex-direction:column; gap:30px; align-items:flex-start;}
     .flow-stage{width:100%; flex-direction:row; text-align:left;}
     .flow-stage p{text-align:left; max-width:none;}
     .flow-line{display:none;}
-    .milestone{grid-template-columns:1fr; gap:6px;}
-    .milestone .m-time{text-align:left;}
+    .milestone{grid-template-columns:1fr; gap:10px;}
+    .milestone .m-time{justify-self:start;}
   }
 
   /* ---------- PRIZE ---------- */
