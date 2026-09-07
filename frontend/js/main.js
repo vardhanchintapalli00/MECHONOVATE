@@ -190,6 +190,15 @@ const THEME_DETAILS = {
   }
 };
 
+// Preload every theme photo as soon as the page loads. By the time someone
+// actually opens a modal, the image is already in the browser's cache, so
+// it appears instantly instead of needing to load (which is when the old
+// photo would otherwise flash briefly).
+Object.values(THEME_DETAILS).forEach((data) => {
+  const preload = new Image();
+  preload.src = data.image;
+});
+
 const themeModal = document.getElementById('theme-modal');
 const modalImage = document.getElementById('modal-image');
 const modalImageWrap = document.querySelector('.modal-image-wrap');
@@ -205,9 +214,29 @@ function openThemeModal(id) {
   modalNum.textContent = 'THEME ' + id;
   modalTitle.textContent = data.title;
   modalDesc.textContent = data.description;
-  modalImageWrap.classList.remove('missing');
-  modalImage.src = data.image;
   modalImage.alt = data.title;
+
+  // Hide whatever photo is currently showing right away, so the previous
+  // theme's image can never be visible while the new one loads.
+  modalImageWrap.classList.remove('missing');
+  modalImage.classList.remove('loaded');
+
+  // Load the new photo off-screen first, and only point the visible <img>
+  // at it (and fade it in) once it's fully ready. This is what stops the
+  // "flashes the old photo, then pops to the right one" glitch.
+  const loader = new Image();
+  loader.onload = () => {
+    // Ignore a stale load if the user already clicked a different theme
+    if (modalImage.dataset.pending !== data.image) return;
+    modalImage.src = data.image;
+    modalImage.classList.add('loaded');
+  };
+  loader.onerror = () => {
+    if (modalImage.dataset.pending !== data.image) return;
+    modalImageWrap.classList.add('missing');
+  };
+  modalImage.dataset.pending = data.image;
+  loader.src = data.image;
 
   themeModal.classList.add('open');
   themeModal.setAttribute('aria-hidden', 'false');
@@ -219,10 +248,6 @@ function closeThemeModal() {
   themeModal.classList.remove('open');
   themeModal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-}
-
-if (modalImage) {
-  modalImage.addEventListener('error', () => modalImageWrap.classList.add('missing'));
 }
 
 document.querySelectorAll('.theme-details-btn').forEach((btn) => {
