@@ -1,4 +1,4 @@
-  :root{
+:root{
     --void:#07090c;
     --panel:#0c1116;
     --panel-2:#10161d;
@@ -279,7 +279,8 @@
   }
   .modal-close:hover{border-color:var(--amber); color:var(--amber);}
   .modal-image-wrap{width:100%; aspect-ratio:16/9; background:var(--panel); border-bottom:1px solid var(--steel); overflow:hidden; position:relative;}
-  .modal-image-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
+  .modal-image-wrap img{width:100%; height:100%; object-fit:cover; display:block; opacity:0; transition:opacity 0.25s ease;}
+  .modal-image-wrap img.loaded{opacity:1;}
   .modal-image-wrap.missing::before{
     content:"Add an image at the path shown below"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
     font-family:'IBM Plex Mono'; font-size:0.8rem; color:var(--silver-dim); text-align:center; padding:20px;
