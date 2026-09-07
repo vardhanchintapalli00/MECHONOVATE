@@ -144,44 +144,44 @@ if (registerLink && GOOGLE_FORM_URL) {
 // placeholder box.
 const THEME_DETAILS = {
   '01': {
-    title: 'Sustainable Engineering',
+    title: 'Agritech And Rural Innovation',
     image: 'assets/images/themes/theme-01.jpg',
-    description: 'Build something that reduces waste, energy use, or environmental impact — anywhere across a product\'s life, from materials and manufacturing to end-of-life disposal or reuse.'
+    description: 'Build mechanical or product solutions that improve farming, food processing, or rural livelihoods — from low-cost tools to smarter agricultural machinery.'
   },
   '02': {
-    title: 'Smart Manufacturing',
+    title: 'Drone Technology',
     image: 'assets/images/themes/theme-02.jpg',
-    description: 'Use automation, sensors, or data to make a manufacturing or production process faster, safer, or more efficient than the manual version.'
+    description: 'Design or improve a drone — its frame, propulsion, payload mechanism, or control system — for a real inspection, delivery, agriculture, or safety use case.'
   },
   '03': {
-    title: 'Robotics and Automation',
+    title: 'Industry 5.0',
     image: 'assets/images/themes/theme-03.jpg',
-    description: 'Design a mechanism or control system that senses its environment and acts on it with little to no human input — arms, rovers, automated rigs, or anything in between.'
+    description: 'Blend human-centered design with automation and smart systems — collaborative robots, adaptive manufacturing, or human-machine interfaces that put people back at the center.'
   },
   '04': {
-    title: 'Renewable Energy',
+    title: 'Smart Robotics And Automation',
     image: 'assets/images/themes/theme-04.jpg',
-    description: 'Create hardware that generates, stores, or distributes energy from a renewable source, or that makes existing renewable systems more practical to use.'
+    description: 'Design a mechanism or control system that senses its environment and acts on it with little to no human input — arms, rovers, automated rigs, or anything in between.'
   },
   '05': {
-    title: 'Automotive Innovation',
+    title: 'Health Care And Assistive Technology With A.I.',
     image: 'assets/images/themes/theme-05.jpg',
-    description: 'Improve a component, safety system, or efficiency feature for any kind of vehicle — two wheels, four wheels, or something unconventional.'
+    description: 'Build a mechanical or physical device — assistive, diagnostic, or rehabilitative — that uses sensors or A.I. to improve patient care or independence.'
   },
   '06': {
-    title: 'IoT and Product Design',
+    title: 'Renewable Energy And E.V\'s',
     image: 'assets/images/themes/theme-06.jpg',
-    description: 'Combine mechanical design with sensors and connectivity to build a physical product that talks to an app, a dashboard, or another device.'
+    description: 'Create hardware for generating or storing renewable energy, or components that improve the range, safety, or efficiency of electric vehicles.'
   },
   '07': {
-    title: 'Additive Manufacturing',
+    title: 'Sustainable Manufacturing And Waste Management',
     image: 'assets/images/themes/theme-07.jpg',
-    description: 'Use 3D printing or another rapid-prototyping technique as a core part of your build — not just for a housing, but for solving the actual design problem.'
+    description: 'Design a process, machine, or product that reduces waste, reuses materials, or makes manufacturing more sustainable end-to-end.'
   },
   '08': {
-    title: 'Future of Mechanical Systems',
+    title: 'Smart Automation',
     image: 'assets/images/themes/theme-08.jpg',
-    description: 'Push a forward-looking mechanical concept — new materials, structures, or machine architectures that go beyond how things are typically built today.'
+    description: 'Automate a repetitive or manual process with sensors, actuators, or control logic — anywhere from a workshop floor to a household task.'
   },
   '09': {
     title: 'Open Innovation',
@@ -265,4 +265,43 @@ if (themeModal) {
 }
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeThemeModal();
+});
+
+// Gallery lightbox — click a photo to view it full-size
+const lightbox = document.getElementById('gallery-lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxClose = document.getElementById('lightbox-close');
+
+function openLightbox(src, alt) {
+  if (!lightbox) return;
+  lightboxImage.src = src;
+  lightboxImage.alt = alt || '';
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  if (!lightbox) return;
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.gallery-item').forEach((item) => {
+  item.addEventListener('click', () => {
+    if (item.classList.contains('missing')) return; // no photo to show yet
+    const img = item.querySelector('img');
+    openLightbox(img.src, img.alt);
+  });
+});
+
+if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+if (lightbox) {
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
 });
