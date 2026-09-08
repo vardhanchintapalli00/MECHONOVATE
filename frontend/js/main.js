@@ -165,16 +165,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-02.jpg',
     description: 'Design or improve a drone — its frame, propulsion, payload mechanism, or control system — for a real inspection, delivery, agriculture, or safety use case.',
     points: [
-      'Statement1 — replace with a real detail about this theme.',
-      'Statement 2 — replace with a real detail about this theme.',
-      'Statement 3 — replace with a real detail about this theme.',
-      'Statement 4 — replace with a real detail about this theme.',
-      'Statement 5 — replace with a real detail about this theme.',
-      'Statement 6 — replace with a real detail about this theme.',
-      'Statement 7 — replace with a real detail about this theme.',
-      'Statement 8 — replace with a real detail about this theme.',
-      'Statement 9 — replace with a real detail about this theme.',
-      'Statement 10 — replace with a real detail about this theme.'
+      'Statement1 — Develop a drone platform with a rapid mechanical payload-changing mechanism for delivery, inspection and sensing applications..',
+      'Statement 2 — Develop a small UAV whose wing configuration can change between different flight conditions to improve efficiency..',
+      'Statement 3 — Design adaptive landing gear capable of absorbing landing shocks on uneven surfaces..',
+      'Statement 4 — Develop a small variable-pitch propulsion mechanism that allows thrust adjustment without changing motor speed..',
+      'Statement 5 — Develop a compliant mechanical attachment that allows a drone to safely contact a surface for inspection..',
+      'Statement 6 — Design a reliable lightweight payload-release mechanism that can operate remotely..',
+      'Statement 7 — Develop a mechanically foldable drone frame optimized for quick deployment and structural rigidity..',
+      'Statement 8 — Drone + vision system that detects cracks/corrosion while maintaining stable inspection distance..',
+      'Statement 9 — Design a lightweight protective mechanism for safe drone operation near structures..',
+      'Statement 10 — Develop a shock-resistant mechanical payload container with controlled release..'
     ]
   },
   '03': {
