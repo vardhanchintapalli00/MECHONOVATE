@@ -134,7 +134,7 @@ if (registerLink && GOOGLE_FORM_URL) {
 } else if (registerLink) {
   registerLink.addEventListener('click', (e) => {
     e.preventDefault();
-    alert('Registrations Opens Soon'); //add your Google Form URL in js/main.js (GOOGLE_FORM_URL) or as the href on #register-link.
+    alert('Registration link is not set up yet — add your Google Form URL in js/main.js (GOOGLE_FORM_URL) or as the href on #register-link.');
   });
 }
 
@@ -146,47 +146,155 @@ const THEME_DETAILS = {
   '01': {
     title: 'Agritech And Rural Innovation',
     image: 'assets/images/themes/theme-01.jpg',
-    description: 'Build mechanical or product solutions that improve farming, food processing, or rural livelihoods — from low-cost tools to smarter agricultural machinery.'
+    description: 'Build mechanical or product solutions that improve farming, food processing, or rural livelihoods — from low-cost tools to smarter agricultural machinery.',
+    points: [
+      'Point 1 — replace with a real detail about this theme.',
+      'Point 2 — replace with a real detail about this theme.',
+      'Point 3 — replace with a real detail about this theme.',
+      'Point 4 — replace with a real detail about this theme.',
+      'Point 5 — replace with a real detail about this theme.',
+      'Point 6 — replace with a real detail about this theme.',
+      'Point 7 — replace with a real detail about this theme.',
+      'Point 8 — replace with a real detail about this theme.',
+      'Point 9 — replace with a real detail about this theme.',
+      'Point 10 — replace with a real detail about this theme.'
+    ]
   },
   '02': {
     title: 'Drone Technology',
     image: 'assets/images/themes/theme-02.jpg',
-    description: 'Design or improve a drone — its frame, propulsion, payload mechanism, or control system — for a real inspection, delivery, agriculture, or safety use case.'
+    description: 'Design or improve a drone — its frame, propulsion, payload mechanism, or control system — for a real inspection, delivery, agriculture, or safety use case.',
+    points: [
+      'Point 1 — replace with a real detail about this theme.',
+      'Point 2 — replace with a real detail about this theme.',
+      'Point 3 — replace with a real detail about this theme.',
+      'Point 4 — replace with a real detail about this theme.',
+      'Point 5 — replace with a real detail about this theme.',
+      'Point 6 — replace with a real detail about this theme.',
+      'Point 7 — replace with a real detail about this theme.',
+      'Point 8 — replace with a real detail about this theme.',
+      'Point 9 — replace with a real detail about this theme.',
+      'Point 10 — replace with a real detail about this theme.'
+    ]
   },
   '03': {
     title: 'Industry 5.0',
     image: 'assets/images/themes/theme-03.jpg',
-    description: 'Blend human-centered design with automation and smart systems — collaborative robots, adaptive manufacturing, or human-machine interfaces that put people back at the center.'
+    description: 'Blend human-centered design with automation and smart systems — collaborative robots, adaptive manufacturing, or human-machine interfaces that put people back at the center.',
+    points: [
+      'Point 1 — replace with a real detail about this theme.',
+      'Point 2 — replace with a real detail about this theme.',
+      'Point 3 — replace with a real detail about this theme.',
+      'Point 4 — replace with a real detail about this theme.',
+      'Point 5 — replace with a real detail about this theme.',
+      'Point 6 — replace with a real detail about this theme.',
+      'Point 7 — replace with a real detail about this theme.',
+      'Point 8 — replace with a real detail about this theme.',
+      'Point 9 — replace with a real detail about this theme.',
+      'Point 10 — replace with a real detail about this theme.'
+    ]
   },
   '04': {
     title: 'Smart Robotics And Automation',
     image: 'assets/images/themes/theme-04.jpg',
-    description: 'Design a mechanism or control system that senses its environment and acts on it with little to no human input — arms, rovers, automated rigs, or anything in between.'
+    description: 'Design a mechanism or control system that senses its environment and acts on it with little to no human input — arms, rovers, automated rigs, or anything in between.',
+    points: [
+      'Point 1 — replace with a real detail about this theme.',
+      'Point 2 — replace with a real detail about this theme.',
+      'Point 3 — replace with a real detail about this theme.',
+      'Point 4 — replace with a real detail about this theme.',
+      'Point 5 — replace with a real detail about this theme.',
+      'Point 6 — replace with a real detail about this theme.',
+      'Point 7 — replace with a real detail about this theme.',
+      'Point 8 — replace with a real detail about this theme.',
+      'Point 9 — replace with a real detail about this theme.',
+      'Point 10 — replace with a real detail about this theme.'
+    ]
   },
   '05': {
     title: 'Health Care And Assistive Technology With A.I.',
     image: 'assets/images/themes/theme-05.jpg',
-    description: 'Build a mechanical or physical device — assistive, diagnostic, or rehabilitative — that uses sensors or A.I. to improve patient care or independence.'
+    description: 'Build a mechanical or physical device — assistive, diagnostic, or rehabilitative — that uses sensors or A.I. to improve patient care or independence.',
+    points: [
+      'Point 1 — replace with a real detail about this theme.',
+      'Point 2 — replace with a real detail about this theme.',
+      'Point 3 — replace with a real detail about this theme.',
+      'Point 4 — replace with a real detail about this theme.',
+      'Point 5 — replace with a real detail about this theme.',
+      'Point 6 — replace with a real detail about this theme.',
+      'Point 7 — replace with a real detail about this theme.',
+      'Point 8 — replace with a real detail about this theme.',
+      'Point 9 — replace with a real detail about this theme.',
+      'Point 10 — replace with a real detail about this theme.'
+    ]
   },
   '06': {
     title: 'Renewable Energy And E.V\'s',
     image: 'assets/images/themes/theme-06.jpg',
-    description: 'Create hardware for generating or storing renewable energy, or components that improve the range, safety, or efficiency of electric vehicles.'
+    description: 'Create hardware for generating or storing renewable energy, or components that improve the range, safety, or efficiency of electric vehicles.',
+    points: [
+      'Point 1 — replace with a real detail about this theme.',
+      'Point 2 — replace with a real detail about this theme.',
+      'Point 3 — replace with a real detail about this theme.',
+      'Point 4 — replace with a real detail about this theme.',
+      'Point 5 — replace with a real detail about this theme.',
+      'Point 6 — replace with a real detail about this theme.',
+      'Point 7 — replace with a real detail about this theme.',
+      'Point 8 — replace with a real detail about this theme.',
+      'Point 9 — replace with a real detail about this theme.',
+      'Point 10 — replace with a real detail about this theme.'
+    ]
   },
   '07': {
     title: 'Sustainable Manufacturing And Waste Management',
     image: 'assets/images/themes/theme-07.jpg',
-    description: 'Design a process, machine, or product that reduces waste, reuses materials, or makes manufacturing more sustainable end-to-end.'
+    description: 'Design a process, machine, or product that reduces waste, reuses materials, or makes manufacturing more sustainable end-to-end.',
+    points: [
+      'Point 1 — replace with a real detail about this theme.',
+      'Point 2 — replace with a real detail about this theme.',
+      'Point 3 — replace with a real detail about this theme.',
+      'Point 4 — replace with a real detail about this theme.',
+      'Point 5 — replace with a real detail about this theme.',
+      'Point 6 — replace with a real detail about this theme.',
+      'Point 7 — replace with a real detail about this theme.',
+      'Point 8 — replace with a real detail about this theme.',
+      'Point 9 — replace with a real detail about this theme.',
+      'Point 10 — replace with a real detail about this theme.'
+    ]
   },
   '08': {
     title: 'Smart Automation',
     image: 'assets/images/themes/theme-08.jpg',
-    description: 'Automate a repetitive or manual process with sensors, actuators, or control logic — anywhere from a workshop floor to a household task.'
+    description: 'Automate a repetitive or manual process with sensors, actuators, or control logic — anywhere from a workshop floor to a household task.',
+    points: [
+      'Point 1 — replace with a real detail about this theme.',
+      'Point 2 — replace with a real detail about this theme.',
+      'Point 3 — replace with a real detail about this theme.',
+      'Point 4 — replace with a real detail about this theme.',
+      'Point 5 — replace with a real detail about this theme.',
+      'Point 6 — replace with a real detail about this theme.',
+      'Point 7 — replace with a real detail about this theme.',
+      'Point 8 — replace with a real detail about this theme.',
+      'Point 9 — replace with a real detail about this theme.',
+      'Point 10 — replace with a real detail about this theme.'
+    ]
   },
   '09': {
     title: 'Open Innovation',
     image: 'assets/images/themes/theme-09.jpg',
-    description: 'Any mechanical problem worth solving that doesn\'t fit neatly into the other eight themes. Bring your own idea and make the case for it.'
+    description: 'Any mechanical problem worth solving that doesn\'t fit neatly into the other eight themes. Bring your own idea and make the case for it.',
+    points: [
+      'Point 1 — replace with a real detail about this theme.',
+      'Point 2 — replace with a real detail about this theme.',
+      'Point 3 — replace with a real detail about this theme.',
+      'Point 4 — replace with a real detail about this theme.',
+      'Point 5 — replace with a real detail about this theme.',
+      'Point 6 — replace with a real detail about this theme.',
+      'Point 7 — replace with a real detail about this theme.',
+      'Point 8 — replace with a real detail about this theme.',
+      'Point 9 — replace with a real detail about this theme.',
+      'Point 10 — replace with a real detail about this theme.'
+    ]
   }
 };
 
@@ -205,6 +313,7 @@ const modalImageWrap = document.querySelector('.modal-image-wrap');
 const modalNum = document.getElementById('modal-num');
 const modalTitle = document.getElementById('modal-title');
 const modalDesc = document.getElementById('modal-desc');
+const modalPoints = document.getElementById('modal-points');
 const modalClose = document.getElementById('modal-close');
 
 function openThemeModal(id) {
@@ -215,6 +324,14 @@ function openThemeModal(id) {
   modalTitle.textContent = data.title;
   modalDesc.textContent = data.description;
   modalImage.alt = data.title;
+
+  // Render the bullet points list (cleared and rebuilt each time)
+  modalPoints.innerHTML = '';
+  (data.points || []).forEach((point) => {
+    const li = document.createElement('li');
+    li.textContent = point;
+    modalPoints.appendChild(li);
+  });
 
   // Hide whatever photo is currently showing right away, so the previous
   // theme's image can never be visible while the new one loads.
