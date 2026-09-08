@@ -182,16 +182,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-03.jpg',
     description: 'Blend human-centered design with automation and smart systems — collaborative robots, adaptive manufacturing, or human-machine interfaces that put people back at the center.',
     points: [
-      'Statement — replace with a real detail about this theme.',
-      'Statement 2 — replace with a real detail about this theme.',
-      'Statement 3 — replace with a real detail about this theme.',
-      'Statement 4 — replace with a real detail about this theme.',
-      'Statement 5 — replace with a real detail about this theme.',
-      'Statement 6 — replace with a real detail about this theme.',
-      'Statement 7 — replace with a real detail about this theme.',
-      'Statement 8 — replace with a real detail about this theme.',
-      'Statement 9 — replace with a real detail about this theme.',
-      'Statement 10 — replace with a real detail about this theme.'
+      'Statement 1 — Develop a fixture that automatically adapts to multiple component geometries without complete replacement..',
+      'Statement 2 — Develop a mechanical vibration isolation system whose damping/stiffness can change according to machine operating conditions..',
+      'Statement 3 — Design a machine whose working module can be quickly replaced for different manufacturing operations..',
+      'Statement 4 — Develop a workstation that mechanically adapts height, reach and working position to different operators..',
+      'Statement 5 — Create a fixture that automatically locks a component when placed correctly and releases it after operation..',
+      'Statement 6 — Develop a system that mechanically/sensor-wise detects tool degradation during machining..',
+      'Statement 7 — Optimize a conveyor system to reduce energy consumption under varying loads..',
+      'Statement 8 — Mechanical safety mechanism + proximity sensing to prevent unsafe human-robot interaction..',
+      'Statement 9 — Develop a fixture capable of securely holding different component sizes..',
+      'Statement 10 — Design a low-cost automatic mechanism for counting manufactured components..'
     ]
   },
   '04': {
@@ -199,16 +199,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-04.jpg',
     description: 'Design a mechanism or control system that senses its environment and acts on it with little to no human input — arms, rovers, automated rigs, or anything in between.',
     points: [
-      'Statement 1 — replace with a real detail about this theme.',
-      'Statement 2 — replace with a real detail about this theme.',
-      'Statement 3 — replace with a real detail about this theme.',
-      'Statement 4 — replace with a real detail about this theme.',
-      'Statement 5 — replace with a real detail about this theme.',
-      'Statement 6 — replace with a real detail about this theme.',
-      'Statement 7 — replace with a real detail about this theme.',
-      'Statement 8 — replace with a real detail about this theme.',
-      'Statement 9 — replace with a real detail about this theme.',
-      'Statement 10 — replace with a real detail about this theme.'
+      'Statement 1 — Design a robot that changes its wheel/track configuration to negotiate different terrains..',
+      'Statement 2 — Develop a gripper that mechanically adapts to objects of different shapes and sizes..',
+      'Statement 3 — Design a compact robot capable of travelling through pipes with different diameters..',
+      'Statement 4 — Develop a robotic mechanism capable of climbing standard stairs while maintaining stability..',
+      'Statement 5 — Develop a manipulator whose mechanical stiffness can be changed according to payload..',
+      'Statement 6 — Design a robot capable of adhering to and moving across vertical surfaces..',
+      'Statement 7 — Develop a leg mechanism that stores and releases energy during locomotion..',
+      'Statement 8 — Mechanical manipulator + vision system for identifying and handling unknown objects..',
+      'Statement 9 — Design a mechanical sorting system using simple sensors..',
+      'Statement 10 — Develop a chassis capable of accepting different locomotion modules..'
     ]
   },
   '05': {
@@ -216,16 +216,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-05.jpg',
     description: 'Build a mechanical or physical device — assistive, diagnostic, or rehabilitative — that uses sensors or A.I. to improve patient care or independence.',
     points: [
-      'Statement 1 — replace with a real detail about this theme.',
-      'Statement 2 — replace with a real detail about this theme.',
-      'Statement 3 — replace with a real detail about this theme.',
-      'Statement 4 — replace with a real detail about this theme.',
-      'Statement 5 — replace with a real detail about this theme.',
-      'Statement 6 — replace with a real detail about this theme.',
-      'Statement 7 — replace with a real detail about this theme.',
-      'Statement 8 — replace with a real detail about this theme.',
-      'Statement 9 — replace with a real detail about this theme.',
-      'Statement 10 — replace with a real detail about this theme.'
+      'Statement 1 — Design a lightweight lower-limb assistance mechanism that can provide adjustable support during rehabilitation..',
+      'Statement 2 — Develop a wearable/support mechanism that detects unstable motion and provides physical assistance..',
+      'Statement 3 — Develop a joint mechanism with adjustable resistance for different activities..',
+      'Statement 4 — Design a wheelchair mechanism capable of negotiating small obstacles and uneven surfaces..',
+      'Statement 5 — Use springs/compliant mechanisms to assist repetitive rehabilitation movements without high actuator power..',
+      'Statement 6 — Develop a compact mechanism that reduces caregiver effort during patient transfer..',
+      'Statement 7 — Develop an automatically adjustable bed mechanism based on user requirements..',
+      'Statement 8 — Mechanical exercise platform + sensors + AI to evaluate exercise movement..',
+      'Statement 9 — Design a lightweight walking-assistance mechanism with adjustable height and support..',
+      'Statement 10 — Develop a mechanical dispensing mechanism with electronic scheduling..'
     ]
   },
   '06': {
@@ -233,16 +233,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-06.jpg',
     description: 'Create hardware for generating or storing renewable energy, or components that improve the range, safety, or efficiency of electric vehicles.',
     points: [
-      'Statement 1 — replace with a real detail about this theme.',
-      'Statement 2 — replace with a real detail about this theme.',
-      'Statement 3 — replace with a real detail about this theme.',
-      'Statement 4 — replace with a real detail about this theme.',
-      'Statement 5 — replace with a real detail about this theme.',
-      'Statement 6 — replace with a real detail about this theme.',
-      'Statement 7 — replace with a real detail about this theme.',
-      'Statement 8 — replace with a real detail about this theme.',
-      'Statement 9 — replace with a real detail about this theme.',
-      'Statement 10 — replace with a real detail about this theme.'
+      'Statement 1 — Develop a compact cooling system that maintains battery temperature uniformity during high-load operation..',
+      'Statement 2 — Design a suspension mechanism that converts part of suspension motion into usable electrical energy..',
+      'Statement 3 — Develop a low-power mechanical tracking system that continuously optimizes panel orientation..',
+      'Statement 4 — Develop a compact mechanical arrangement capable of harvesting both solar and wind energy..',
+      'Statement 5 — Design and test an optimized cooling-channel geometry for battery modules..',
+      'Statement 6 — Develop a flywheel/spring-based energy storage prototype for intermittent renewable energy..',
+      'Statement 7 — Develop a mechanically efficient pumping system powered through solar energy..',
+      'Statement 8 — Use battery operating data to predict degradation while incorporating thermal/mechanical conditions..',
+      'Statement 9 — Develop a simple low-energy mechanism for removing dust from panels..',
+      'Statement 10 — Design and test a small wind-energy harvesting mechanism optimized for low wind speeds..'
     ]
   },
   '07': {
@@ -250,16 +250,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-07.jpg',
     description: 'Design a process, machine, or product that reduces waste, reuses materials, or makes manufacturing more sustainable end-to-end.',
     points: [
-      'Statement 1 — replace with a real detail about this theme.',
-      'Statement 2 — replace with a real detail about this theme.',
-      'Statement 3 — replace with a real detail about this theme.',
-      'Statement 4 — replace with a real detail about this theme.',
-      'Statement 5 — replace with a real detail about this theme.',
-      'Statement 6 — replace with a real detail about this theme.',
-      'Statement 7 — replace with a real detail about this theme.',
-      'Statement 8 — replace with a real detail about this theme.',
-      'Statement 9 — replace with a real detail about this theme.',
-      'Statement 10 — replace with a real detail about this theme.'
+      'Statement 1 — Develop a mechanical system that separates reusable components from discarded electronic products..',
+      'Statement 2 — Design a compact automated sorting machine capable of separating multiple waste categories..',
+      'Statement 3 — Develop an engineering composite using agricultural waste as reinforcement/filler..',
+      'Statement 4 — Develop a compact system for processing selected plastic waste into usable engineering products..',
+      'Statement 5 — Design a crushing + screening system for recovering usable construction material..',
+      'Statement 6 — Develop an energy-efficient mechanical compactor for mixed waste..',
+      'Statement 7 — Create a machine architecture where shredding, sorting and compaction modules can be changed according to waste type..',
+      'Statement 8 — Mechanical conveyor/sorting mechanism combined with vision-based waste classification..',
+      'Statement 9 — Design a safe, efficient low-cost plastic shredding mechanism..',
+      'Statement 10 — Develop a mechanical compaction mechanism that increases waste storage capacity..'
     ]
   },
   '08': {
@@ -267,16 +267,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-08.jpg',
     description: 'Automate a repetitive or manual process with sensors, actuators, or control logic — anywhere from a workshop floor to a household task.',
     points: [
-      'Statement 1 — replace with a real detail about this theme.',
-      'Statement 2 — replace with a real detail about this theme.',
-      'Statement 3 — replace with a real detail about this theme.',
-      'Statement 4 — replace with a real detail about this theme.',
-      'Statement 5 — replace with a real detail about this theme.',
-      'Statement 6 — replace with a real detail about this theme.',
-      'Statement 7 — replace with a real detail about this theme.',
-      'Statement 8 — replace with a real detail about this theme.',
-      'Statement 9 — replace with a real detail about this theme.',
-      'Statement 10 — replace with a real detail about this theme.'
+      'Statement 1 — Design a transmission system capable of maintaining limited operation after failure of a critical transmission element..',
+      'Statement 2 — Develop a machine that can physically change its working configuration for multiple manufacturing tasks..',
+      'Statement 3 — Design a vibration-isolation mechanism with adjustable stiffness/damping..',
+      'Statement 4 — Develop a modular conveyor/handling system that adapts to different material sizes..',
+      'Statement 5 — Develop a mechanical safety system that automatically moves equipment into a safe state during abnormal conditions..',
+      'Statement 6 — Design a low-backlash positioning mechanism for automated manufacturing..',
+      'Statement 7 — Develop a compact mechanism capable of automatically changing tools/modules..',
+      'Statement 8 — Use vibration/temperature/current data to identify abnormal machine behaviour..',
+      'Statement 9 — Develop a basic sensor-controlled mechanical sorting system..',
+      'Statement 10 — Design a mechanism that continuously feeds components into a manufacturing workstation..'
     ]
   },
   '09': {
