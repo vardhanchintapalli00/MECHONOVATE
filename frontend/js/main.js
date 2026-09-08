@@ -148,16 +148,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-01.jpg',
     description: 'Build mechanical or product solutions that improve farming, food processing, or rural livelihoods — from low-cost tools to smarter agricultural machinery.',
     points: [
-      'Point 1 — replace with a real detail about this theme.',
-      'Point 2 — replace with a real detail about this theme.',
-      'Point 3 — replace with a real detail about this theme.',
-      'Point 4 — replace with a real detail about this theme.',
-      'Point 5 — replace with a real detail about this theme.',
-      'Point 6 — replace with a real detail about this theme.',
-      'Point 7 — replace with a real detail about this theme.',
-      'Point 8 — replace with a real detail about this theme.',
-      'Point 9 — replace with a real detail about this theme.',
-      'Point 10 — replace with a real detail about this theme.'
+      'Statement 1 — Design a modular agricultural machine that can adjust its tool depth/position according to soil condition and crop spacing.',
+      'Statement 2 — Develop a small ground robot that identifies crop rows and mechanically removes weeds without disturbing crops..',
+      'Statement 3 — Create a mechanism that maintains uniform seed spacing and depth for different seed sizes..',
+      'Statement 4 — Design a compact machine that converts loose agricultural residue into dense transportable blocks..',
+      'Statement 5 — Develop a tillage mechanism whose working depth/angle changes according to measured soil resistance..',
+      'Statement 6 — Design a manually/semi-automatically operated harvesting mechanism that minimizes crop damage..',
+      'Statement 7 — Develop a solar dryer with mechanically adjustable airflow for different agricultural products..',
+      'Statement 8 — Create a system where soil conditions automatically control mechanical water flow to individual crop zones..',
+      'Statement 9 — Develop a modular hand-pushed platform capable of carrying interchangeable agricultural tools..',
+      'Statement 10 — Design a compact mechanical system for separating impurities from harvested grains..'
     ]
   },
   '02': {
@@ -165,16 +165,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-02.jpg',
     description: 'Design or improve a drone — its frame, propulsion, payload mechanism, or control system — for a real inspection, delivery, agriculture, or safety use case.',
     points: [
-      'Point 1 — replace with a real detail about this theme.',
-      'Point 2 — replace with a real detail about this theme.',
-      'Point 3 — replace with a real detail about this theme.',
-      'Point 4 — replace with a real detail about this theme.',
-      'Point 5 — replace with a real detail about this theme.',
-      'Point 6 — replace with a real detail about this theme.',
-      'Point 7 — replace with a real detail about this theme.',
-      'Point 8 — replace with a real detail about this theme.',
-      'Point 9 — replace with a real detail about this theme.',
-      'Point 10 — replace with a real detail about this theme.'
+      'Statement1 — replace with a real detail about this theme.',
+      'Statement 2 — replace with a real detail about this theme.',
+      'Statement 3 — replace with a real detail about this theme.',
+      'Statement 4 — replace with a real detail about this theme.',
+      'Statement 5 — replace with a real detail about this theme.',
+      'Statement 6 — replace with a real detail about this theme.',
+      'Statement 7 — replace with a real detail about this theme.',
+      'Statement 8 — replace with a real detail about this theme.',
+      'Statement 9 — replace with a real detail about this theme.',
+      'Statement 10 — replace with a real detail about this theme.'
     ]
   },
   '03': {
@@ -182,16 +182,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-03.jpg',
     description: 'Blend human-centered design with automation and smart systems — collaborative robots, adaptive manufacturing, or human-machine interfaces that put people back at the center.',
     points: [
-      'Point 1 — replace with a real detail about this theme.',
-      'Point 2 — replace with a real detail about this theme.',
-      'Point 3 — replace with a real detail about this theme.',
-      'Point 4 — replace with a real detail about this theme.',
-      'Point 5 — replace with a real detail about this theme.',
-      'Point 6 — replace with a real detail about this theme.',
-      'Point 7 — replace with a real detail about this theme.',
-      'Point 8 — replace with a real detail about this theme.',
-      'Point 9 — replace with a real detail about this theme.',
-      'Point 10 — replace with a real detail about this theme.'
+      'Statement — replace with a real detail about this theme.',
+      'Statement 2 — replace with a real detail about this theme.',
+      'Statement 3 — replace with a real detail about this theme.',
+      'Statement 4 — replace with a real detail about this theme.',
+      'Statement 5 — replace with a real detail about this theme.',
+      'Statement 6 — replace with a real detail about this theme.',
+      'Statement 7 — replace with a real detail about this theme.',
+      'Statement 8 — replace with a real detail about this theme.',
+      'Statement 9 — replace with a real detail about this theme.',
+      'Statement 10 — replace with a real detail about this theme.'
     ]
   },
   '04': {
@@ -199,16 +199,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-04.jpg',
     description: 'Design a mechanism or control system that senses its environment and acts on it with little to no human input — arms, rovers, automated rigs, or anything in between.',
     points: [
-      'Point 1 — replace with a real detail about this theme.',
-      'Point 2 — replace with a real detail about this theme.',
-      'Point 3 — replace with a real detail about this theme.',
-      'Point 4 — replace with a real detail about this theme.',
-      'Point 5 — replace with a real detail about this theme.',
-      'Point 6 — replace with a real detail about this theme.',
-      'Point 7 — replace with a real detail about this theme.',
-      'Point 8 — replace with a real detail about this theme.',
-      'Point 9 — replace with a real detail about this theme.',
-      'Point 10 — replace with a real detail about this theme.'
+      'Statement 1 — replace with a real detail about this theme.',
+      'Statement 2 — replace with a real detail about this theme.',
+      'Statement 3 — replace with a real detail about this theme.',
+      'Statement 4 — replace with a real detail about this theme.',
+      'Statement 5 — replace with a real detail about this theme.',
+      'Statement 6 — replace with a real detail about this theme.',
+      'Statement 7 — replace with a real detail about this theme.',
+      'Statement 8 — replace with a real detail about this theme.',
+      'Statement 9 — replace with a real detail about this theme.',
+      'Statement 10 — replace with a real detail about this theme.'
     ]
   },
   '05': {
@@ -216,16 +216,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-05.jpg',
     description: 'Build a mechanical or physical device — assistive, diagnostic, or rehabilitative — that uses sensors or A.I. to improve patient care or independence.',
     points: [
-      'Point 1 — replace with a real detail about this theme.',
-      'Point 2 — replace with a real detail about this theme.',
-      'Point 3 — replace with a real detail about this theme.',
-      'Point 4 — replace with a real detail about this theme.',
-      'Point 5 — replace with a real detail about this theme.',
-      'Point 6 — replace with a real detail about this theme.',
-      'Point 7 — replace with a real detail about this theme.',
-      'Point 8 — replace with a real detail about this theme.',
-      'Point 9 — replace with a real detail about this theme.',
-      'Point 10 — replace with a real detail about this theme.'
+      'Statement 1 — replace with a real detail about this theme.',
+      'Statement 2 — replace with a real detail about this theme.',
+      'Statement 3 — replace with a real detail about this theme.',
+      'Statement 4 — replace with a real detail about this theme.',
+      'Statement 5 — replace with a real detail about this theme.',
+      'Statement 6 — replace with a real detail about this theme.',
+      'Statement 7 — replace with a real detail about this theme.',
+      'Statement 8 — replace with a real detail about this theme.',
+      'Statement 9 — replace with a real detail about this theme.',
+      'Statement 10 — replace with a real detail about this theme.'
     ]
   },
   '06': {
@@ -233,16 +233,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-06.jpg',
     description: 'Create hardware for generating or storing renewable energy, or components that improve the range, safety, or efficiency of electric vehicles.',
     points: [
-      'Point 1 — replace with a real detail about this theme.',
-      'Point 2 — replace with a real detail about this theme.',
-      'Point 3 — replace with a real detail about this theme.',
-      'Point 4 — replace with a real detail about this theme.',
-      'Point 5 — replace with a real detail about this theme.',
-      'Point 6 — replace with a real detail about this theme.',
-      'Point 7 — replace with a real detail about this theme.',
-      'Point 8 — replace with a real detail about this theme.',
-      'Point 9 — replace with a real detail about this theme.',
-      'Point 10 — replace with a real detail about this theme.'
+      'Statement 1 — replace with a real detail about this theme.',
+      'Statement 2 — replace with a real detail about this theme.',
+      'Statement 3 — replace with a real detail about this theme.',
+      'Statement 4 — replace with a real detail about this theme.',
+      'Statement 5 — replace with a real detail about this theme.',
+      'Statement 6 — replace with a real detail about this theme.',
+      'Statement 7 — replace with a real detail about this theme.',
+      'Statement 8 — replace with a real detail about this theme.',
+      'Statement 9 — replace with a real detail about this theme.',
+      'Statement 10 — replace with a real detail about this theme.'
     ]
   },
   '07': {
@@ -250,16 +250,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-07.jpg',
     description: 'Design a process, machine, or product that reduces waste, reuses materials, or makes manufacturing more sustainable end-to-end.',
     points: [
-      'Point 1 — replace with a real detail about this theme.',
-      'Point 2 — replace with a real detail about this theme.',
-      'Point 3 — replace with a real detail about this theme.',
-      'Point 4 — replace with a real detail about this theme.',
-      'Point 5 — replace with a real detail about this theme.',
-      'Point 6 — replace with a real detail about this theme.',
-      'Point 7 — replace with a real detail about this theme.',
-      'Point 8 — replace with a real detail about this theme.',
-      'Point 9 — replace with a real detail about this theme.',
-      'Point 10 — replace with a real detail about this theme.'
+      'Statement 1 — replace with a real detail about this theme.',
+      'Statement 2 — replace with a real detail about this theme.',
+      'Statement 3 — replace with a real detail about this theme.',
+      'Statement 4 — replace with a real detail about this theme.',
+      'Statement 5 — replace with a real detail about this theme.',
+      'Statement 6 — replace with a real detail about this theme.',
+      'Statement 7 — replace with a real detail about this theme.',
+      'Statement 8 — replace with a real detail about this theme.',
+      'Statement 9 — replace with a real detail about this theme.',
+      'Statement 10 — replace with a real detail about this theme.'
     ]
   },
   '08': {
@@ -267,34 +267,23 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-08.jpg',
     description: 'Automate a repetitive or manual process with sensors, actuators, or control logic — anywhere from a workshop floor to a household task.',
     points: [
-      'Point 1 — replace with a real detail about this theme.',
-      'Point 2 — replace with a real detail about this theme.',
-      'Point 3 — replace with a real detail about this theme.',
-      'Point 4 — replace with a real detail about this theme.',
-      'Point 5 — replace with a real detail about this theme.',
-      'Point 6 — replace with a real detail about this theme.',
-      'Point 7 — replace with a real detail about this theme.',
-      'Point 8 — replace with a real detail about this theme.',
-      'Point 9 — replace with a real detail about this theme.',
-      'Point 10 — replace with a real detail about this theme.'
+      'Statement 1 — replace with a real detail about this theme.',
+      'Statement 2 — replace with a real detail about this theme.',
+      'Statement 3 — replace with a real detail about this theme.',
+      'Statement 4 — replace with a real detail about this theme.',
+      'Statement 5 — replace with a real detail about this theme.',
+      'Statement 6 — replace with a real detail about this theme.',
+      'Statement 7 — replace with a real detail about this theme.',
+      'Statement 8 — replace with a real detail about this theme.',
+      'Statement 9 — replace with a real detail about this theme.',
+      'Statement 10 — replace with a real detail about this theme.'
     ]
   },
   '09': {
     title: 'Open Innovation',
     image: 'assets/images/themes/theme-09.jpg',
-    description: 'Any mechanical problem worth solving that doesn\'t fit neatly into the other eight themes. Bring your own idea and make the case for it.',
-    points: [
-      'Point 1 — replace with a real detail about this theme.',
-      'Point 2 — replace with a real detail about this theme.',
-      'Point 3 — replace with a real detail about this theme.',
-      'Point 4 — replace with a real detail about this theme.',
-      'Point 5 — replace with a real detail about this theme.',
-      'Point 6 — replace with a real detail about this theme.',
-      'Point 7 — replace with a real detail about this theme.',
-      'Point 8 — replace with a real detail about this theme.',
-      'Point 9 — replace with a real detail about this theme.',
-      'Point 10 — replace with a real detail about this theme.'
-    ]
+    description: 'Any real world problem worth solving that doesn\'t fit neatly into the other eight themes. Bring your own idea and make the case for it.',
+
   }
 };
 
