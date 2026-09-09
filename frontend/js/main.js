@@ -152,12 +152,12 @@ const THEME_DETAILS = {
       'Statement 2 — Develop a small ground robot that identifies crop rows and mechanically removes weeds without disturbing crops..',
       'Statement 3 — Create a mechanism that maintains uniform seed spacing and depth for different seed sizes..',
       'Statement 4 — Design a compact machine that converts loose agricultural residue into dense transportable blocks..',
-      'Statement 5 — Develop a tillage mechanism whose working depth/angle changes according to measured soil resistance..',
-      'Statement 6 — Design a manually/semi-automatically operated harvesting mechanism that minimizes crop damage..',
-      'Statement 7 — Develop a solar dryer with mechanically adjustable airflow for different agricultural products..',
-      'Statement 8 — Create a system where soil conditions automatically control mechanical water flow to individual crop zones..',
-      'Statement 9 — Develop a modular hand-pushed platform capable of carrying interchangeable agricultural tools..',
-      'Statement 10 — Design a compact mechanical system for separating impurities from harvested grains..'
+      'Statement 5 — Develop a solar-based micro-power system that intelligently manages energy generated from solar panels and prioritizes essential agricultural loads such as irrigation, sensors, lighting and farm equipment during limited-power conditions...',
+      'Statement 6 — Develop an AI model that analyzes crop images captured through a smartphone and identifies early signs of common diseases or abnormalities, providing farmers with simple preventive recommendations...',
+      'Statement 7 — Develop a portable system that detects early signs of crop stress caused by water deficiency, nutrient imbalance, pests or disease and provides the farmer with a simple actionable recommendation...',
+      'Statement 8 — Design an intelligent irrigation system that combines soil moisture, weather, crop stage and water availability to determine where, when and how much water should be supplied, with automatic control of individual zones...',
+      'Statement 9 — Create a smart monitoring system that detects abnormal electrical conditions around agricultural pumps and field wiring, such as leakage, overload or unusual current behaviour, and provides an immediate warning to prevent equipment damage and electrical accidents...',
+      'Statement 10 — Create an intelligent platform that matches agricultural waste producers with nearby potential users such as composters, biofuel producers, livestock owners or small industries, reducing waste and improving rural income opportunities.x..'
     ]
   },
   '02': {
@@ -167,14 +167,14 @@ const THEME_DETAILS = {
     points: [
       'Statement1 — Develop a drone platform with a rapid mechanical payload-changing mechanism for delivery, inspection and sensing applications..',
       'Statement 2 — Develop a small UAV whose wing configuration can change between different flight conditions to improve efficiency..',
-      'Statement 3 — Design adaptive landing gear capable of absorbing landing shocks on uneven surfaces..',
-      'Statement 4 — Develop a small variable-pitch propulsion mechanism that allows thrust adjustment without changing motor speed..',
+      'Statement 3 — Develop a lightweight adaptive landing mechanism that enables a drone to land safely on uneven, sloped or soft agricultural terrain without compromising stability...',
+      'Statement 4 — Develop a mechanically optimized spraying module that can control droplet delivery and spray coverage while minimizing chemical wastage and maintaining uniform distribution...',
       'Statement 5 — Develop a compliant mechanical attachment that allows a drone to safely contact a surface for inspection..',
-      'Statement 6 — Design a reliable lightweight payload-release mechanism that can operate remotely..',
-      'Statement 7 — Develop a mechanically foldable drone frame optimized for quick deployment and structural rigidity..',
-      'Statement 8 — Drone + vision system that detects cracks/corrosion while maintaining stable inspection distance..',
-      'Statement 9 — Design a lightweight protective mechanism for safe drone operation near structures..',
-      'Statement 10 — Develop a shock-resistant mechanical payload container with controlled release..'
+      'Statement 6 — Design an autonomous landing-and-docking system that accurately guides a drone to a charging station and enables automatic battery charging without manual intervention...',
+      'Statement 7 — Design an embedded safety system that detects critical conditions such as propulsion failure, low battery or loss of communication and automatically initiates an appropriate recovery response...',
+      'Statement 8 — Develop a drone-assisted system capable of capturing images of bridges, buildings or other structures and identifying visible defects such as cracks, surface deterioration and damaged components, while generating a basic inspection report...',
+      'Statement 9 — Create a software platform where users define a target area and mission objective, and the system automatically generates an optimized flight route, calculates estimated mission duration and visualizes the complete mission...',
+      'Statement 10 — Develop a dynamic system that combines predefined restricted zones, temporary hazards and drone position data to predict when a planned flight path may enter an unsafe/restricted region and suggest an alternative route...'
     ]
   },
   '03': {
@@ -182,16 +182,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-03.jpg',
     description: 'Blend human-centered design with automation and smart systems — collaborative robots, adaptive manufacturing, or human-machine interfaces that put people back at the center.',
     points: [
-      'Statement 1 — Develop a fixture that automatically adapts to multiple component geometries without complete replacement..',
-      'Statement 2 — Develop a mechanical vibration isolation system whose damping/stiffness can change according to machine operating conditions..',
+      'Statement 1 — Build a working prototype that detects the operator's hand position and automatically presents, positions  or holds the required component/tool at the correct location during an assembly task, reducing unnecessary human movement...',
+      'Statement 2 — Build a physical fixture that can automatically adjust its clamping points according to different component sizes/shapes, allowing multiple parts to be securely held without manual fixture adjustment...',
       'Statement 3 — Design a machine whose working module can be quickly replaced for different manufacturing operations..',
       'Statement 4 — Develop a workstation that mechanically adapts height, reach and working position to different operators..',
       'Statement 5 — Create a fixture that automatically locks a component when placed correctly and releases it after operation..',
-      'Statement 6 — Develop a system that mechanically/sensor-wise detects tool degradation during machining..',
-      'Statement 7 — Optimize a conveyor system to reduce energy consumption under varying loads..',
-      'Statement 8 — Mechanical safety mechanism + proximity sensing to prevent unsafe human-robot interaction..',
-      'Statement 9 — Develop a fixture capable of securely holding different component sizes..',
-      'Statement 10 — Design a low-cost automatic mechanism for counting manufactured components..'
+      'Statement 6 — Develop a prototype robotic handling system that detects a human's presence and dynamically changes its motion/speed or pauses operation to safely collaborate with the operator during part handling...',
+      'Statement 7 — Develop an optimized solution for  a conveyor system to reduce energy consumption under varying loads..',
+      'Statement 8 — Develop a prototype that monitors energy consumption of multiple machines/loads and automatically prioritizes or controls them based on workload and available power...',
+      'Statement 9 —Build an interactive simulation where a human operator, AI system and virtual machines collaboratively perform a production task, with real-time monitoring, fault handling, task optimization and human intervention...',
+      'Statement 10 — Build a computer-vision system that detects defects in manufactured objects and allows a human operator to confirm or reject AI decisions, using that feedback to improve subsequent inspection decisions...'
     ]
   },
   '04': {
@@ -199,15 +199,15 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-04.jpg',
     description: 'Design a mechanism or control system that senses its environment and acts on it with little to no human input — arms, rovers, automated rigs, or anything in between.',
     points: [
-      'Statement 1 — Design a robot that changes its wheel/track configuration to negotiate different terrains..',
+      'Statement 1 — Develop a robot that changes its wheel/track configuration to negotiate different terrains..',
       'Statement 2 — Develop a gripper that mechanically adapts to objects of different shapes and sizes..',
-      'Statement 3 — Design a compact robot capable of travelling through pipes with different diameters..',
-      'Statement 4 — Develop a robotic mechanism capable of climbing standard stairs while maintaining stability..',
-      'Statement 5 — Develop a manipulator whose mechanical stiffness can be changed according to payload..',
-      'Statement 6 — Design a robot capable of adhering to and moving across vertical surfaces..',
-      'Statement 7 — Develop a leg mechanism that stores and releases energy during locomotion..',
-      'Statement 8 — Mechanical manipulator + vision system for identifying and handling unknown objects..',
-      'Statement 9 — Design a mechanical sorting system using simple sensors..',
+      'Statement 3 — Develop a compact robot capable of travelling through pipes with different diameters in different pressure flows..',
+      'Statement 4 — Build two or more small robots that exchange status/location information wirelessly and coordinate their movements to complete a shared task without collision..',
+      'Statement 5 — Develop a system that estimates a disconnected robot's last known location and condition and generates an appropriate recovery strategy..',
+      'Statement 6 — Develop a robot capable of adhering to and moving across vertical surfaces..',
+      'Statement 7 — Develop a robot that continuously monitors its own sensors, motors and communication links, identifies abnormal behaviour and automatically switches to a safe/recovery mode when a fault is detected..',
+      'Statement 8 — Develop an AI system that recognizes predefined human movements or gestures and enables a robot to respond accordingly...',
+      'Statement 9 — Develop an automated robotic technology for a mechanical sorting system using simple sensors..',
       'Statement 10 — Develop a chassis capable of accepting different locomotion modules..'
     ]
   },
@@ -216,16 +216,16 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-05.jpg',
     description: 'Build a mechanical or physical device — assistive, diagnostic, or rehabilitative — that uses sensors or A.I. to improve patient care or independence.',
     points: [
-      'Statement 1 — Design a lightweight lower-limb assistance mechanism that can provide adjustable support during rehabilitation..',
+      'Statement 1 — Develop a low-cost mechanical system for safely transferring patients between beds and wheelchairs with minimal caregiver effort..',
       'Statement 2 — Develop a wearable/support mechanism that detects unstable motion and provides physical assistance..',
       'Statement 3 — Develop a joint mechanism with adjustable resistance for different activities..',
-      'Statement 4 — Design a wheelchair mechanism capable of negotiating small obstacles and uneven surfaces..',
-      'Statement 5 — Use springs/compliant mechanisms to assist repetitive rehabilitation movements without high actuator power..',
-      'Statement 6 — Develop a compact mechanism that reduces caregiver effort during patient transfer..',
-      'Statement 7 — Develop an automatically adjustable bed mechanism based on user requirements..',
-      'Statement 8 — Mechanical exercise platform + sensors + AI to evaluate exercise movement..',
-      'Statement 9 — Design a lightweight walking-assistance mechanism with adjustable height and support..',
-      'Statement 10 — Develop a mechanical dispensing mechanism with electronic scheduling..'
+      'Statement 4 — Develop a wheelchair mechanism capable of negotiating small obstacles and uneven surfaces..',
+      'Statement 5 — Develop a low-cost adjustable mechanism for controlled rehabilitation exercises of the hand, wrist, or leg...',
+      'Statement 6 — Develop a practical station for safe segregation and temporary handling of different categories of healthcare waste..',
+      'Statement 7 — Develop a portable electronic system to monitor basic patient parameters such as heart rate, temperature, and SpO₂ with real-time alerts..',
+      'Statement 8 — Develop a sensor-based system to monitor patient bed occupancy and detect unsafe conditions such as unexpected bed exits..',
+      'Statement 9 — Develop a digital system to manage patient queues, appointments, and consultation status to reduce waiting time..',
+      'Statement 10 — Develop a real-time platform to monitor hospital bed occupancy and display available beds across different wards..'
     ]
   },
   '06': {
@@ -234,15 +234,15 @@ const THEME_DETAILS = {
     description: 'Create hardware for generating or storing renewable energy, or components that improve the range, safety, or efficiency of electric vehicles.',
     points: [
       'Statement 1 — Develop a compact cooling system that maintains battery temperature uniformity during high-load operation..',
-      'Statement 2 — Design a suspension mechanism that converts part of suspension motion into usable electrical energy..',
-      'Statement 3 — Develop a low-power mechanical tracking system that continuously optimizes panel orientation..',
+      'Statement 2 — Develop a suspension mechanism that converts part of suspension motion into usable electrical energy..',
+      'Statement 3 — Develop a mechanical prototype that captures and stores energy normally lost during vehicle braking..',
       'Statement 4 — Develop a compact mechanical arrangement capable of harvesting both solar and wind energy..',
-      'Statement 5 — Design and test an optimized cooling-channel geometry for battery modules..',
-      'Statement 6 — Develop a flywheel/spring-based energy storage prototype for intermittent renewable energy..',
-      'Statement 7 — Develop a mechanically efficient pumping system powered through solar energy..',
-      'Statement 8 — Use battery operating data to predict degradation while incorporating thermal/mechanical conditions..',
-      'Statement 9 — Develop a simple low-energy mechanism for removing dust from panels..',
-      'Statement 10 — Design and test a small wind-energy harvesting mechanism optimized for low wind speeds..'
+      'Statement 5 — Develop a compact and portable charging unit suitable for small electric vehicles using renewable energy..',
+      'Statement 6 — Develop a low-power wireless charging prototype for an EV battery using inductive power transfer..',
+      'Statement 7 — Develop a compact MPPT-based solar charge controller to improve energy extraction from solar panels for EV charging...',
+      'Statement 8 — Develop an IoT-enabled system to monitor charging voltage, current, energy consumption, and charging status remotely..',
+      'Statement 9 — Develop a software platform to monitor EV charging stations, charger availability, charging status, and energy consumption in real time..',
+      'Statement 10 — Develop a software system that monitors charging-station parameters and identifies abnormal conditions such as charging interruption, voltage variation, or equipment failure..'
     ]
   },
   '07': {
@@ -251,15 +251,15 @@ const THEME_DETAILS = {
     description: 'Design a process, machine, or product that reduces waste, reuses materials, or makes manufacturing more sustainable end-to-end.',
     points: [
       'Statement 1 — Develop a mechanical system that separates reusable components from discarded electronic products..',
-      'Statement 2 — Design a compact automated sorting machine capable of separating multiple waste categories..',
+      'Statement 2 — Develop a compact automated sorting machine capable of separating multiple waste categories..',
       'Statement 3 — Develop an engineering composite using agricultural waste as reinforcement/filler..',
       'Statement 4 — Develop a compact system for processing selected plastic waste into usable engineering products..',
-      'Statement 5 — Design a crushing + screening system for recovering usable construction material..',
-      'Statement 6 — Develop an energy-efficient mechanical compactor for mixed waste..',
-      'Statement 7 — Create a machine architecture where shredding, sorting and compaction modules can be changed according to waste type..',
-      'Statement 8 — Mechanical conveyor/sorting mechanism combined with vision-based waste classification..',
-      'Statement 9 — Design a safe, efficient low-cost plastic shredding mechanism..',
-      'Statement 10 — Develop a mechanical compaction mechanism that increases waste storage capacity..'
+      'Statement 5 — Develop a modular reusable formwork system that reduces material consumption and construction waste during concrete work..',
+      'Statement 6 — Develop a permeable pavement block using recycled materials that allows rainwater infiltration while maintaining structural strength..',
+      'Statement 7 — Develop a sensor-based system that monitors unnecessary energy consumption in machines and provides real-time alerts..',
+      'Statement 8 — Develop a wireless sensor system that monitors waste-bin levels and provides alerts when collection is required..',
+      'Statement 9 — Develop an AI vision system that identifies and classifies manufacturing waste into reusable, recyclable, and non-recyclable categories..',
+      'Statement 10 — Develop an intelligent platform that tracks waste from generation to recycling and predicts the most suitable recovery pathway for each waste category..'
     ]
   },
   '08': {
