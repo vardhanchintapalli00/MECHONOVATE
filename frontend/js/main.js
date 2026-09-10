@@ -267,16 +267,8 @@ const THEME_DETAILS = {
     image: 'assets/images/themes/theme-08.jpg',
     description: 'Automate a repetitive or manual process with sensors, actuators, or control logic — anywhere from a workshop floor to a household task.',
     points: [
-      'Statement 1 — Develop an automated mechanism for moving and transferring materials between different stages of a workshop or construction site..',
-      'Statement 2 — Develop a machine that can physically change its working configuration for multiple manufacturing tasks..',
-      'Statement 3 — Develop a vibration-isolation mechanism with adjustable stiffness/damping..',
-      'Statement 4 — Develop a modular conveyor/handling system that adapts to different material sizes..',
-      'Statement 5 — Develop a mechanical safety system that automatically moves equipment into a safe state during abnormal conditions..',
-      'Statement 6 — Develop an automated conveyor system that detects and mechanically sorts objects based on size, weight, or shape..',
-      'Statement 7 — Develop an electronic system that detects predefined electrical faults and automatically triggers protective actions like shifting to backup power or other backup techniques..',
-      'Statement 8 — Develop a compact IoT-enabled device that collects machine parameters and displays real-time operating status remotely like real time tracking of power usage, output, and any  faults..',
-      'Statement 9 — Develop an AI-based system that analyzes energy consumption and automatically recommends or controls loads to reduce unnecessary usage..',
-      'Statement 10 — Develop a computer vision system that automatically inspects products and identifies predefined defects or quality issues..'
+      'Problem statements will be provided by industry experts one day prior to the commencement of the event. These challenges will be derived from real-world industrial scenarios and aligned with current industry needs, emerging technologies, and practical engineering requirements.
+',
     ]
   },
   '09': {
