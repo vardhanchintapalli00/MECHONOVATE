@@ -1,405 +1,941 @@
 // Preloader
 window.addEventListener('load', () => {
   const pre = document.getElementById('preloader');
-  setTimeout(() => pre.classList.add('hide'), 500);
+
+  if (pre) {
+    setTimeout(() => {
+      pre.classList.add('hide');
+    }, 500);
+  }
 });
+
 
 // Mobile nav toggle
 const toggle = document.getElementById('nav-toggle');
 const navlinks = document.getElementById('navlinks');
-toggle.addEventListener('click', () => navlinks.classList.toggle('open'));
-navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
 
-// Reactive nav indicator + active link on scroll — positioned relative to nav-inner, not the <ul>
+if (toggle && navlinks) {
+  toggle.addEventListener('click', () => {
+    navlinks.classList.toggle('open');
+  });
+
+  navlinks.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => navlinks.classList.remove('open'))
+  );
+}
+
+
+// Reactive nav indicator + active link on scroll
 const links = Array.from(document.querySelectorAll('.nav-link'));
 const indicator = document.getElementById('nav-indicator');
 const navInner = document.querySelector('.nav-inner');
-const sections = links.map(l => document.querySelector(l.getAttribute('href')));
+const sections = links.map(l =>
+  document.querySelector(l.getAttribute('href'))
+);
 
-function moveIndicator(link){
-  if(!link || window.innerWidth <= 920){ indicator.style.opacity = '0'; return; }
+
+function moveIndicator(link) {
+  if (!indicator || !navInner || !link || window.innerWidth <= 920) {
+    if (indicator) indicator.style.opacity = '0';
+    return;
+  }
+
   const linkBox = link.getBoundingClientRect();
   const innerBox = navInner.getBoundingClientRect();
+
   indicator.style.left = (linkBox.left - innerBox.left) + 'px';
   indicator.style.width = linkBox.width + 'px';
   indicator.style.opacity = '1';
 }
 
-let activeLink = links[0];
-function setActive(){
+
+let activeLink = links[0] || null;
+
+function setActive() {
+  if (!links.length || !sections.length) return;
+
   let current = sections[0];
   const scrollPos = window.scrollY + 130;
+
   sections.forEach((sec) => {
-    if(sec && sec.offsetTop <= scrollPos) current = sec;
+    if (sec && sec.offsetTop <= scrollPos) {
+      current = sec;
+    }
   });
+
   const idx = sections.indexOf(current);
-  if(idx > -1){
+
+  if (idx > -1) {
     links.forEach(l => l.classList.remove('active'));
-    links[idx].classList.add('active');
-    activeLink = links[idx];
-    moveIndicator(activeLink);
+
+    if (links[idx]) {
+      links[idx].classList.add('active');
+      activeLink = links[idx];
+      moveIndicator(activeLink);
+    }
   }
 }
-window.addEventListener('scroll', setActive, {passive:true});
-window.addEventListener('resize', () => moveIndicator(activeLink));
+
+
+window.addEventListener('scroll', setActive, {
+  passive: true
+});
+
+window.addEventListener('resize', () => {
+  moveIndicator(activeLink);
+});
+
 window.addEventListener('load', setActive);
-if(document.fonts && document.fonts.ready){ document.fonts.ready.then(() => moveIndicator(activeLink)); }
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => {
+    moveIndicator(activeLink);
+  });
+}
+
 setActive();
+
 
 // Flow stage reveal
 const flowSection = document.getElementById('flow-stages');
 const flowFill = document.getElementById('flow-fill');
 const flowPulse = document.getElementById('flow-pulse');
 const stages = document.querySelectorAll('.flow-stage');
+
 let flowDone = false;
-const flowObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting && !flowDone){
-      flowDone = true;
-      flowFill.style.width = '100%';
-      stages.forEach((s, i) => setTimeout(() => s.classList.add('lit'), 300 + i * 500));
-      setTimeout(() => flowPulse.classList.add('run'), 1900);
-    }
+
+if (flowSection) {
+  const flowObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !flowDone) {
+        flowDone = true;
+
+        if (flowFill) {
+          flowFill.style.width = '100%';
+        }
+
+        stages.forEach((s, i) => {
+          setTimeout(() => {
+            s.classList.add('lit');
+          }, 300 + i * 500);
+        });
+
+        if (flowPulse) {
+          setTimeout(() => {
+            flowPulse.classList.add('run');
+          }, 1900);
+        }
+      }
+    });
+  }, {
+    threshold: 0.4
   });
-}, {threshold:0.4});
-flowObserver.observe(flowSection);
+
+  flowObserver.observe(flowSection);
+}
+
 
 // Fade-in on scroll
 const fadeEls = document.querySelectorAll('.fade-in');
-const fadeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      fadeObserver.unobserve(entry.target);
-    }
-  });
-}, {threshold:0.15});
-fadeEls.forEach(el => fadeObserver.observe(el));
 
-// Count-up numbers (gauge/odometer style)
+if (fadeEls.length) {
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  fadeEls.forEach(el => fadeObserver.observe(el));
+}
+
+
+// Count-up numbers
 const counters = document.querySelectorAll('[data-count]');
-function animateCount(el){
-  const target = parseInt(el.getAttribute('data-count'), 10);
+
+function animateCount(el) {
+  const target = parseInt(
+    el.getAttribute('data-count'),
+    10
+  );
+
   const prefix = el.getAttribute('data-prefix') || '';
   const suffix = el.getAttribute('data-suffix') || '';
   const pad = el.getAttribute('data-pad');
   const duration = 1400;
+
+  if (isNaN(target)) return;
+
   const start = performance.now();
-  function tick(now){
-    const p = Math.min((now - start) / duration, 1);
+
+  function tick(now) {
+    const p = Math.min(
+      (now - start) / duration,
+      1
+    );
+
     const eased = 1 - Math.pow(1 - p, 3);
-    let val = Math.round(target * eased);
-    let valStr = pad ? String(val).padStart(parseInt(pad,10), '0') : val.toLocaleString('en-IN');
-    el.textContent = prefix + valStr + suffix;
-    if(p < 1) requestAnimationFrame(tick);
+
+    const val = Math.round(target * eased);
+
+    const valStr = pad
+      ? String(val).padStart(
+          parseInt(pad, 10),
+          '0'
+        )
+      : val.toLocaleString('en-IN');
+
+    el.textContent =
+      prefix + valStr + suffix;
+
+    if (p < 1) {
+      requestAnimationFrame(tick);
+    }
   }
+
   requestAnimationFrame(tick);
 }
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      animateCount(entry.target);
-      countObserver.unobserve(entry.target);
-    }
+
+
+if (counters.length) {
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.6
   });
-}, {threshold:0.6});
-counters.forEach(c => countObserver.observe(c));
+
+  counters.forEach(c =>
+    countObserver.observe(c)
+  );
+}
+
 
 // FAQ accordion
 document.querySelectorAll('.faq-item').forEach(item => {
   const q = item.querySelector('.faq-q');
   const a = item.querySelector('.faq-a');
+
+  if (!q || !a) return;
+
   q.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(other => {
-      other.classList.remove('open');
-      other.querySelector('.faq-a').style.maxHeight = null;
-    });
-    if(!isOpen){
+    const isOpen =
+      item.classList.contains('open');
+
+    document
+      .querySelectorAll('.faq-item.open')
+      .forEach(other => {
+        other.classList.remove('open');
+
+        const otherAnswer =
+          other.querySelector('.faq-a');
+
+        if (otherAnswer) {
+          otherAnswer.style.maxHeight = null;
+        }
+      });
+
+    if (!isOpen) {
       item.classList.add('open');
-      a.style.maxHeight = a.scrollHeight + 'px';
+      a.style.maxHeight =
+        a.scrollHeight + 'px';
     }
   });
 });
 
 
-// Register button -> Google Form link.
-// TODO: once your Google Form is ready, put its URL here (or directly in the
-// href="#" on the #register-link button in index.html — either works).
-const GOOGLE_FORM_URL = ''; // e.g. 'https://forms.gle/xxxxxxxxxxxx'
+// Register button -> Google Form link
+// Add your Google Form URL here.
+const GOOGLE_FORM_URL = '';
 
-const registerLink = document.getElementById('register-link');
+const registerLink =
+  document.getElementById('register-link');
+
 if (registerLink && GOOGLE_FORM_URL) {
+
   registerLink.href = GOOGLE_FORM_URL;
+
 } else if (registerLink) {
+
   registerLink.addEventListener('click', (e) => {
+
     e.preventDefault();
-    alert('Registration link is not set up yet — add your Google Form URL in js/main.js (GOOGLE_FORM_URL) or as the href on #register-link.');
+
+    alert(
+      'Registration link is not set up yet — add your Google Form URL in js/main.js (GOOGLE_FORM_URL) or as the href on #register-link.'
+    );
+
   });
 }
 
-// Theme details modal
-// Edit the text below to customize each theme's description, and drop a
-// matching image into assets/images/themes/ (named as shown) to replace the
-// placeholder box.
+
+// =====================================================
+// THEME DETAILS
+// =====================================================
+
 const THEME_DETAILS = {
+
   '01': {
     title: 'Agritech And Rural Innovation',
     image: 'assets/images/themes/theme-01.jpg',
-    description: 'Build mechanical or product solutions that improve farming, food processing, or rural livelihoods — from low-cost tools to smarter agricultural machinery.',
+
+    description:
+      'Build mechanical or product solutions that improve farming, food processing, or rural livelihoods — from low-cost tools to smarter agricultural machinery.',
+
     points: [
+
       'Statement 1 — Design a modular agricultural machine that can adjust its tool depth/position according to soil condition and crop spacing.',
-      'Statement 2 — Develop a small ground robot that identifies crop rows and mechanically removes weeds without disturbing crops..',
-      'Statement 3 — Create a mechanism that maintains uniform seed spacing and depth for different seed sizes..',
-      'Statement 4 — Design a compact machine that converts loose agricultural residue into dense transportable blocks..',
-      'Statement 5 — Develop a solar-based micro-power system that intelligently manages energy generated from solar panels and prioritizes essential agricultural loads such as irrigation, sensors, lighting and farm equipment during limited-power conditions...',
-      'Statement 6 — Develop an AI model that analyzes crop images captured through a smartphone and identifies early signs of common diseases or abnormalities, providing farmers with simple preventive recommendations...',
-      'Statement 7 — Develop a portable system that detects early signs of crop stress caused by water deficiency, nutrient imbalance, pests or disease and provides the farmer with a simple actionable recommendation...',
-      'Statement 8 — Design an intelligent irrigation system that combines soil moisture, weather, crop stage and water availability to determine where, when and how much water should be supplied, with automatic control of individual zones...',
-      'Statement 9 — Create a smart monitoring system that detects abnormal electrical conditions around agricultural pumps and field wiring, such as leakage, overload or unusual current behaviour, and provides an immediate warning to prevent equipment damage and electrical accidents...',
-      'Statement 10 — Create an intelligent platform that matches agricultural waste producers with nearby potential users such as composters, biofuel producers, livestock owners or small industries, reducing waste and improving rural income opportunities.x..'
+
+      'Statement 2 — Develop a small ground robot that identifies crop rows and mechanically removes weeds without disturbing crops.',
+
+      'Statement 3 — Create a mechanism that maintains uniform seed spacing and depth for different seed sizes.',
+
+      'Statement 4 — Design a compact machine that converts loose agricultural residue into dense transportable blocks.',
+
+      'Statement 5 — Develop a solar-based micro-power system that intelligently manages energy generated from solar panels and prioritizes essential agricultural loads such as irrigation, sensors, lighting and farm equipment during limited-power conditions.',
+
+      'Statement 6 — Develop an AI model that analyzes crop images captured through a smartphone and identifies early signs of common diseases or abnormalities, providing farmers with simple preventive recommendations.',
+
+      'Statement 7 — Develop a portable system that detects early signs of crop stress caused by water deficiency, nutrient imbalance, pests or disease and provides the farmer with a simple actionable recommendation.',
+
+      'Statement 8 — Design an intelligent irrigation system that combines soil moisture, weather, crop stage and water availability to determine where, when and how much water should be supplied, with automatic control of individual zones.',
+
+      'Statement 9 — Create a smart monitoring system that detects abnormal electrical conditions around agricultural pumps and field wiring, such as leakage, overload or unusual current behaviour, and provides an immediate warning to prevent equipment damage and electrical accidents.',
+
+      'Statement 10 — Create an intelligent platform that matches agricultural waste producers with nearby potential users such as composters, biofuel producers, livestock owners or small industries, reducing waste and improving rural income opportunities.'
     ]
   },
+
+
   '02': {
     title: 'Drone Technology',
     image: 'assets/images/themes/theme-02.jpg',
-    description: 'Design or improve a drone — its frame, propulsion, payload mechanism, or control system — for a real inspection, delivery, agriculture, or safety use case.',
+
+    description:
+      'Design or improve a drone — its frame, propulsion, payload mechanism, or control system — for a real inspection, delivery, agriculture, or safety use case.',
+
     points: [
-      'Statement1 — Develop a drone platform with a rapid mechanical payload-changing mechanism for delivery, inspection and sensing applications..',
-      'Statement 2 — Develop a small UAV whose wing configuration can change between different flight conditions to improve efficiency..',
-      'Statement 3 — Develop a lightweight adaptive landing mechanism that enables a drone to land safely on uneven, sloped or soft agricultural terrain without compromising stability...',
-      'Statement 4 — Develop a mechanically optimized spraying module that can control droplet delivery and spray coverage while minimizing chemical wastage and maintaining uniform distribution...',
-      'Statement 5 — Develop a compliant mechanical attachment that allows a drone to safely contact a surface for inspection..',
-      'Statement 6 — Design an autonomous landing-and-docking system that accurately guides a drone to a charging station and enables automatic battery charging without manual intervention...',
-      'Statement 7 — Design an embedded safety system that detects critical conditions such as propulsion failure, low battery or loss of communication and automatically initiates an appropriate recovery response...',
-      'Statement 8 — Develop a drone-assisted system capable of capturing images of bridges, buildings or other structures and identifying visible defects such as cracks, surface deterioration and damaged components, while generating a basic inspection report...',
-      'Statement 9 — Create a software platform where users define a target area and mission objective, and the system automatically generates an optimized flight route, calculates estimated mission duration and visualizes the complete mission...',
-      'Statement 10 — Develop a dynamic system that combines predefined restricted zones, temporary hazards and drone position data to predict when a planned flight path may enter an unsafe/restricted region and suggest an alternative route...'
+
+      'Statement 1 — Develop a drone platform with a rapid mechanical payload-changing mechanism for delivery, inspection and sensing applications.',
+
+      'Statement 2 — Develop a small UAV whose wing configuration can change between different flight conditions to improve efficiency.',
+
+      'Statement 3 — Develop a lightweight adaptive landing mechanism that enables a drone to land safely on uneven, sloped or soft agricultural terrain without compromising stability.',
+
+      'Statement 4 — Develop a mechanically optimized spraying module that can control droplet delivery and spray coverage while minimizing chemical wastage and maintaining uniform distribution.',
+
+      'Statement 5 — Develop a compliant mechanical attachment that allows a drone to safely contact a surface for inspection.',
+
+      'Statement 6 — Design an autonomous landing-and-docking system that accurately guides a drone to a charging station and enables automatic battery charging without manual intervention.',
+
+      'Statement 7 — Design an embedded safety system that detects critical conditions such as propulsion failure, low battery or loss of communication and automatically initiates an appropriate recovery response.',
+
+      'Statement 8 — Develop a drone-assisted system capable of capturing images of bridges, buildings or other structures and identifying visible defects such as cracks, surface deterioration and damaged components, while generating a basic inspection report.',
+
+      'Statement 9 — Create a software platform where users define a target area and mission objective, and the system automatically generates an optimized flight route, calculates estimated mission duration and visualizes the complete mission.',
+
+      'Statement 10 — Develop a dynamic system that combines predefined restricted zones, temporary hazards and drone position data to predict when a planned flight path may enter an unsafe/restricted region and suggest an alternative route.'
     ]
   },
+
+
   '03': {
     title: 'Industry 5.0',
     image: 'assets/images/themes/theme-03.jpg',
-    description: 'Blend human-centered design with automation and smart systems — collaborative robots, adaptive manufacturing, or human-machine interfaces that put people back at the center.',
+
+    description:
+      'Blend human-centered design with automation and smart systems — collaborative robots, adaptive manufacturing, or human-machine interfaces that put people back at the center.',
+
     points: [
-      'Statement 1 — Build a working prototype that detects the operators hand position and automatically presents, positions  or holds the required component/tool at the correct location during an assembly task, reducing unnecessary human movement...',
-      'Statement 2 — Build a physical fixture that can automatically adjust its clamping points according to different component sizes/shapes, allowing multiple parts to be securely held without manual fixture adjustment...',
-      'Statement 3 — Design a machine whose working module can be quickly replaced for different manufacturing operations..',
-      'Statement 4 — Develop a workstation that mechanically adapts height, reach and working position to different operators..',
-      'Statement 5 — Create a fixture that automatically locks a component when placed correctly and releases it after operation..',
-      'Statement 6 — Develop a prototype robotic handling system that detects a humans presence and dynamically changes its motion/speed or pauses operation to safely collaborate with the operator during part handling...',
-      'Statement 7 — Develop an optimized solution for  a conveyor system to reduce energy consumption under varying loads..',
-      'Statement 8 — Develop a prototype that monitors energy consumption of multiple machines/loads and automatically prioritizes or controls them based on workload and available power...',
-      'Statement 9 —Build an interactive simulation where a human operator, AI system and virtual machines collaboratively perform a production task, with real-time monitoring, fault handling, task optimization and human intervention...',
-      'Statement 10 — Build a computer-vision system that detects defects in manufactured objects and allows a human operator to confirm or reject AI decisions, using that feedback to improve subsequent inspection decisions...'
+
+      'Statement 1 — Build a working prototype that detects the operators hand position and automatically presents, positions or holds the required component/tool at the correct location during an assembly task, reducing unnecessary human movement.',
+
+      'Statement 2 — Build a physical fixture that can automatically adjust its clamping points according to different component sizes/shapes, allowing multiple parts to be securely held without manual fixture adjustment.',
+
+      'Statement 3 — Design a machine whose working module can be quickly replaced for different manufacturing operations.',
+
+      'Statement 4 — Develop a workstation that mechanically adapts height, reach and working position to different operators.',
+
+      'Statement 5 — Create a fixture that automatically locks a component when placed correctly and releases it after operation.',
+
+      'Statement 6 — Develop a prototype robotic handling system that detects a humans presence and dynamically changes its motion/speed or pauses operation to safely collaborate with the operator during part handling.',
+
+      'Statement 7 — Develop an optimized solution for a conveyor system to reduce energy consumption under varying loads.',
+
+      'Statement 8 — Develop a prototype that monitors energy consumption of multiple machines/loads and automatically prioritizes or controls them based on workload and available power.',
+
+      'Statement 9 — Build an interactive simulation where a human operator, AI system and virtual machines collaboratively perform a production task, with real-time monitoring, fault handling, task optimization and human intervention.',
+
+      'Statement 10 — Build a computer-vision system that detects defects in manufactured objects and allows a human operator to confirm or reject AI decisions, using that feedback to improve subsequent inspection decisions.'
     ]
   },
+
+
   '04': {
     title: 'Smart Robotics And Automation',
     image: 'assets/images/themes/theme-04.jpg',
-    description: 'Design a mechanism or control system that senses its environment and acts on it with little to no human input — arms, rovers, automated rigs, or anything in between.',
+
+    description:
+      'Design a mechanism or control system that senses its environment and acts on it with little to no human input — arms, rovers, automated rigs, or anything in between.',
+
     points: [
-      'Statement 1 — Develop a robot that changes its wheel/track configuration to negotiate different terrains..',
-      'Statement 2 — Develop a gripper that mechanically adapts to objects of different shapes and sizes..',
-      'Statement 3 — Develop a compact robot capable of travelling through pipes with different diameters in different pressure flows..',
-      'Statement 4 — Build two or more small robots that exchange status/location information wirelessly and coordinate their movements to complete a shared task without collision..',
-      'Statement 5 — Develop a system that estimates a disconnected robots last known location and condition and generates an appropriate recovery strategy..',
-      'Statement 6 — Develop a robot capable of adhering to and moving across vertical surfaces..',
-      'Statement 7 — Develop a robot that continuously monitors its own sensors, motors and communication links, identifies abnormal behaviour and automatically switches to a safe/recovery mode when a fault is detected..',
-      'Statement 8 — Develop an AI system that recognizes predefined human movements or gestures and enables a robot to respond accordingly...',
-      'Statement 9 — Develop an automated robotic technology for a mechanical sorting system using simple sensors..',
-      'Statement 10 — Develop a chassis capable of accepting different locomotion modules..'
+
+      'Statement 1 — Develop a robot that changes its wheel/track configuration to negotiate different terrains.',
+
+      'Statement 2 — Develop a gripper that mechanically adapts to objects of different shapes and sizes.',
+
+      'Statement 3 — Develop a compact robot capable of travelling through pipes with different diameters in different pressure flows.',
+
+      'Statement 4 — Build two or more small robots that exchange status/location information wirelessly and coordinate their movements to complete a shared task without collision.',
+
+      'Statement 5 — Develop a system that estimates a disconnected robots last known location and condition and generates an appropriate recovery strategy.',
+
+      'Statement 6 — Develop a robot capable of adhering to and moving across vertical surfaces.',
+
+      'Statement 7 — Develop a robot that continuously monitors its own sensors, motors and communication links, identifies abnormal behaviour and automatically switches to a safe/recovery mode when a fault is detected.',
+
+      'Statement 8 — Develop an AI system that recognizes predefined human movements or gestures and enables a robot to respond accordingly.',
+
+      'Statement 9 — Develop an automated robotic technology for a mechanical sorting system using simple sensors.',
+
+      'Statement 10 — Develop a chassis capable of accepting different locomotion modules.'
     ]
   },
+
+
   '05': {
     title: 'Health Care And Assistive Technology With A.I.',
     image: 'assets/images/themes/theme-05.jpg',
-    description: 'Build a mechanical or physical device — assistive, diagnostic, or rehabilitative — that uses sensors or A.I. to improve patient care or independence.',
+
+    description:
+      'Build a mechanical or physical device — assistive, diagnostic, or rehabilitative — that uses sensors or A.I. to improve patient care or independence.',
+
     points: [
-      'Statement 1 — Develop a low-cost mechanical system for safely transferring patients between beds and wheelchairs with minimal caregiver effort..',
-      'Statement 2 — Develop a wearable/support mechanism that detects unstable motion and provides physical assistance..',
-      'Statement 3 — Develop a joint mechanism with adjustable resistance for different activities..',
-      'Statement 4 — Develop a wheelchair mechanism capable of negotiating small obstacles and uneven surfaces..',
-      'Statement 5 — Develop a low-cost adjustable mechanism for controlled rehabilitation exercises of the hand, wrist, or leg...',
-      'Statement 6 — Develop a practical station for safe segregation and temporary handling of different categories of healthcare waste..',
-      'Statement 7 — Develop a portable electronic system to monitor basic patient parameters such as heart rate, temperature, and SpO₂ with real-time alerts..',
-      'Statement 8 — Develop a sensor-based system to monitor patient bed occupancy and detect unsafe conditions such as unexpected bed exits..',
-      'Statement 9 — Develop a digital system to manage patient queues, appointments, and consultation status to reduce waiting time..',
-      'Statement 10 — Develop a real-time platform to monitor hospital bed occupancy and display available beds across different wards..'
+
+      'Statement 1 — Develop a low-cost mechanical system for safely transferring patients between beds and wheelchairs with minimal caregiver effort.',
+
+      'Statement 2 — Develop a wearable/support mechanism that detects unstable motion and provides physical assistance.',
+
+      'Statement 3 — Develop a joint mechanism with adjustable resistance for different activities.',
+
+      'Statement 4 — Develop a wheelchair mechanism capable of negotiating small obstacles and uneven surfaces.',
+
+      'Statement 5 — Develop a low-cost adjustable mechanism for controlled rehabilitation exercises of the hand, wrist, or leg.',
+
+      'Statement 6 — Develop a practical station for safe segregation and temporary handling of different categories of healthcare waste.',
+
+      'Statement 7 — Develop a portable electronic system to monitor basic patient parameters such as heart rate, temperature, and SpO₂ with real-time alerts.',
+
+      'Statement 8 — Develop a sensor-based system to monitor patient bed occupancy and detect unsafe conditions such as unexpected bed exits.',
+
+      'Statement 9 — Develop a digital system to manage patient queues, appointments, and consultation status to reduce waiting time.',
+
+      'Statement 10 — Develop a real-time platform to monitor hospital bed occupancy and display available beds across different wards.'
     ]
   },
+
+
   '06': {
-    title: 'Renewable Energy And E.V\'s',
+    title: "Renewable Energy And E.V's",
     image: 'assets/images/themes/theme-06.jpg',
-    description: 'Create hardware for generating or storing renewable energy, or components that improve the range, safety, or efficiency of electric vehicles.',
+
+    description:
+      'Create hardware for generating or storing renewable energy, or components that improve the range, safety, or efficiency of electric vehicles.',
+
     points: [
-      'Statement 1 — Develop a compact cooling system that maintains battery temperature uniformity during high-load operation..',
-      'Statement 2 — Develop a suspension mechanism that converts part of suspension motion into usable electrical energy..',
-      'Statement 3 — Develop a mechanical prototype that captures and stores energy normally lost during vehicle braking..',
-      'Statement 4 — Develop a compact mechanical arrangement capable of harvesting both solar and wind energy..',
-      'Statement 5 — Develop a compact and portable charging unit suitable for small electric vehicles using renewable energy..',
-      'Statement 6 — Develop a low-power wireless charging prototype for an EV battery using inductive power transfer..',
-      'Statement 7 — Develop a compact MPPT-based solar charge controller to improve energy extraction from solar panels for EV charging...',
-      'Statement 8 — Develop an IoT-enabled system to monitor charging voltage, current, energy consumption, and charging status remotely..',
-      'Statement 9 — Develop a software platform to monitor EV charging stations, charger availability, charging status, and energy consumption in real time..',
-      'Statement 10 — Develop a software system that monitors charging-station parameters and identifies abnormal conditions such as charging interruption, voltage variation, or equipment failure..'
+
+      'Statement 1 — Develop a compact cooling system that maintains battery temperature uniformity during high-load operation.',
+
+      'Statement 2 — Develop a suspension mechanism that converts part of suspension motion into usable electrical energy.',
+
+      'Statement 3 — Develop a mechanical prototype that captures and stores energy normally lost during vehicle braking.',
+
+      'Statement 4 — Develop a compact mechanical arrangement capable of harvesting both solar and wind energy.',
+
+      'Statement 5 — Develop a compact and portable charging unit suitable for small electric vehicles using renewable energy.',
+
+      'Statement 6 — Develop a low-power wireless charging prototype for an EV battery using inductive power transfer.',
+
+      'Statement 7 — Develop a compact MPPT-based solar charge controller to improve energy extraction from solar panels for EV charging.',
+
+      'Statement 8 — Develop an IoT-enabled system to monitor charging voltage, current, energy consumption, and charging status remotely.',
+
+      'Statement 9 — Develop a software platform to monitor EV charging stations, charger availability, charging status, and energy consumption in real time.',
+
+      'Statement 10 — Develop a software system that monitors charging-station parameters and identifies abnormal conditions such as charging interruption, voltage variation, or equipment failure.'
     ]
   },
+
+
   '07': {
     title: 'Sustainable Manufacturing And Waste Management',
     image: 'assets/images/themes/theme-07.jpg',
-    description: 'Design a process, machine, or product that reduces waste, reuses materials, or makes manufacturing more sustainable end-to-end.',
+
+    description:
+      'Design a process, machine, or product that reduces waste, reuses materials, or makes manufacturing more sustainable end-to-end.',
+
     points: [
-      'Statement 1 — Develop a mechanical system that separates reusable components from discarded electronic products..',
-      'Statement 2 — Develop a compact automated sorting machine capable of separating multiple waste categories..',
-      'Statement 3 — Develop an engineering composite using agricultural waste as reinforcement/filler..',
-      'Statement 4 — Develop a compact system for processing selected plastic waste into usable engineering products..',
-      'Statement 5 — Develop a modular reusable formwork system that reduces material consumption and construction waste during concrete work..',
-      'Statement 6 — Develop a permeable pavement block using recycled materials that allows rainwater infiltration while maintaining structural strength..',
-      'Statement 7 — Develop a sensor-based system that monitors unnecessary energy consumption in machines and provides real-time alerts..',
-      'Statement 8 — Develop a wireless sensor system that monitors waste-bin levels and provides alerts when collection is required..',
-      'Statement 9 — Develop an AI vision system that identifies and classifies manufacturing waste into reusable, recyclable, and non-recyclable categories..',
-      'Statement 10 — Develop an intelligent platform that tracks waste from generation to recycling and predicts the most suitable recovery pathway for each waste category..'
+
+      'Statement 1 — Develop a mechanical system that separates reusable components from discarded electronic products.',
+
+      'Statement 2 — Develop a compact automated sorting machine capable of separating multiple waste categories.',
+
+      'Statement 3 — Develop an engineering composite using agricultural waste as reinforcement/filler.',
+
+      'Statement 4 — Develop a compact system for processing selected plastic waste into usable engineering products.',
+
+      'Statement 5 — Develop a modular reusable formwork system that reduces material consumption and construction waste during concrete work.',
+
+      'Statement 6 — Develop a permeable pavement block using recycled materials that allows rainwater infiltration while maintaining structural strength.',
+
+      'Statement 7 — Develop a sensor-based system that monitors unnecessary energy consumption in machines and provides real-time alerts.',
+
+      'Statement 8 — Develop a wireless sensor system that monitors waste-bin levels and provides alerts when collection is required.',
+
+      'Statement 9 — Develop an AI vision system that identifies and classifies manufacturing waste into reusable, recyclable, and non-recyclable categories.',
+
+      'Statement 10 — Develop an intelligent platform that tracks waste from generation to recycling and predicts the most suitable recovery pathway for each waste category.'
     ]
   },
+
+
+  // =====================================================
+  // FIXED THEME 08
+  // =====================================================
+
   '08': {
     title: 'Smart Automation',
     image: 'assets/images/themes/theme-08.jpg',
-    description: 'Automate a repetitive or manual process with sensors, actuators, or control logic — anywhere from a workshop floor to a household task.',
+
+    description:
+      'Automate a repetitive or manual process with sensors, actuators, or control logic — anywhere from a workshop floor to a household task.',
+
     points: [
-      'Problem statements will be provided by industry experts one day prior to the commencement of the event. These challenges will be derived from real-world industrial scenarios and aligned with current industry needs, emerging technologies, and practical engineering requirements.
-',
+
+      'Problem statements will be provided by industry experts one day prior to the commencement of the event. These challenges will be derived from real-world industrial scenarios and aligned with current industry needs, emerging technologies, and practical engineering requirements.'
+
     ]
   },
+
+
   '09': {
     title: 'Open Innovation',
     image: 'assets/images/themes/theme-09.jpg',
-    description: 'Any real world problem worth solving that doesn\'t fit neatly into the other eight themes. Bring your own idea and make the case for it.',
 
+    description:
+      "Any real world problem worth solving that doesn't fit neatly into the other eight themes. Bring your own idea and make the case for it.",
+
+    points: []
   }
+
 };
 
-// Preload every theme photo as soon as the page loads. By the time someone
-// actually opens a modal, the image is already in the browser's cache, so
-// it appears instantly instead of needing to load (which is when the old
-// photo would otherwise flash briefly).
+
+// =====================================================
+// PRELOAD THEME IMAGES
+// =====================================================
+
 Object.values(THEME_DETAILS).forEach((data) => {
-  const preload = new Image();
-  preload.src = data.image;
+
+  if (data && data.image) {
+
+    const preload = new Image();
+
+    preload.src = data.image;
+  }
+
 });
 
-const themeModal = document.getElementById('theme-modal');
-const modalImage = document.getElementById('modal-image');
-const modalImageWrap = document.querySelector('.modal-image-wrap');
-const modalNum = document.getElementById('modal-num');
-const modalTitle = document.getElementById('modal-title');
-const modalDesc = document.getElementById('modal-desc');
-const modalPoints = document.getElementById('modal-points');
-const modalClose = document.getElementById('modal-close');
+
+// =====================================================
+// THEME DETAILS MODAL
+// =====================================================
+
+const themeModal =
+  document.getElementById('theme-modal');
+
+const modalImage =
+  document.getElementById('modal-image');
+
+const modalImageWrap =
+  document.querySelector('.modal-image-wrap');
+
+const modalNum =
+  document.getElementById('modal-num');
+
+const modalTitle =
+  document.getElementById('modal-title');
+
+const modalDesc =
+  document.getElementById('modal-desc');
+
+const modalPoints =
+  document.getElementById('modal-points');
+
+const modalClose =
+  document.getElementById('modal-close');
+
 
 function openThemeModal(id) {
+
   const data = THEME_DETAILS[id];
-  if (!data || !themeModal) return;
 
-  modalNum.textContent = 'THEME ' + id;
-  modalTitle.textContent = data.title;
-  modalDesc.textContent = data.description;
-  modalImage.alt = data.title;
+  if (!data || !themeModal) {
+    return;
+  }
 
-  // Render the bullet points list (cleared and rebuilt each time)
-  modalPoints.innerHTML = '';
-  (data.points || []).forEach((point) => {
-    const li = document.createElement('li');
-    li.textContent = point;
-    modalPoints.appendChild(li);
-  });
 
-  // Hide whatever photo is currently showing right away, so the previous
-  // theme's image can never be visible while the new one loads.
-  modalImageWrap.classList.remove('missing');
-  modalImage.classList.remove('loaded');
+  if (modalNum) {
+    modalNum.textContent =
+      'THEME ' + id;
+  }
 
-  // Load the new photo off-screen first, and only point the visible <img>
-  // at it (and fade it in) once it's fully ready. This is what stops the
-  // "flashes the old photo, then pops to the right one" glitch.
-  const loader = new Image();
-  loader.onload = () => {
-    // Ignore a stale load if the user already clicked a different theme
-    if (modalImage.dataset.pending !== data.image) return;
-    modalImage.src = data.image;
-    modalImage.classList.add('loaded');
-  };
-  loader.onerror = () => {
-    if (modalImage.dataset.pending !== data.image) return;
-    modalImageWrap.classList.add('missing');
-  };
-  modalImage.dataset.pending = data.image;
-  loader.src = data.image;
 
-  themeModal.classList.add('open');
-  themeModal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
+  if (modalTitle) {
+    modalTitle.textContent =
+      data.title;
+  }
+
+
+  if (modalDesc) {
+    modalDesc.textContent =
+      data.description;
+  }
+
+
+  if (modalImage) {
+    modalImage.alt =
+      data.title;
+  }
+
+
+  // Render bullet points
+  if (modalPoints) {
+
+    modalPoints.innerHTML = '';
+
+    (data.points || []).forEach((point) => {
+
+      const li =
+        document.createElement('li');
+
+      li.textContent = point;
+
+      modalPoints.appendChild(li);
+
+    });
+  }
+
+
+  // Hide old image
+  if (modalImageWrap) {
+    modalImageWrap.classList.remove(
+      'missing'
+    );
+  }
+
+
+  if (modalImage) {
+    modalImage.classList.remove(
+      'loaded'
+    );
+  }
+
+
+  // Load new image
+  if (modalImage && modalImageWrap) {
+
+    const loader = new Image();
+
+    loader.onload = () => {
+
+      if (
+        modalImage.dataset.pending !==
+        data.image
+      ) {
+        return;
+      }
+
+      modalImage.src =
+        data.image;
+
+      modalImage.classList.add(
+        'loaded'
+      );
+
+    };
+
+
+    loader.onerror = () => {
+
+      if (
+        modalImage.dataset.pending !==
+        data.image
+      ) {
+        return;
+      }
+
+      modalImageWrap.classList.add(
+        'missing'
+      );
+
+    };
+
+
+    modalImage.dataset.pending =
+      data.image;
+
+    loader.src =
+      data.image;
+  }
+
+
+  themeModal.classList.add(
+    'open'
+  );
+
+  themeModal.setAttribute(
+    'aria-hidden',
+    'false'
+  );
+
+  document.body.style.overflow =
+    'hidden';
 }
+
 
 function closeThemeModal() {
-  if (!themeModal) return;
-  themeModal.classList.remove('open');
-  themeModal.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+
+  if (!themeModal) {
+    return;
+  }
+
+  themeModal.classList.remove(
+    'open'
+  );
+
+  themeModal.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+  document.body.style.overflow =
+    '';
 }
 
-document.querySelectorAll('.theme-details-btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const card = btn.closest('.theme-card');
-    openThemeModal(card.dataset.theme);
-  });
-});
 
-if (modalClose) modalClose.addEventListener('click', closeThemeModal);
+// Theme detail buttons
+document
+  .querySelectorAll('.theme-details-btn')
+  .forEach((btn) => {
+
+    btn.addEventListener(
+      'click',
+      () => {
+
+        const card =
+          btn.closest('.theme-card');
+
+        if (card) {
+
+          openThemeModal(
+            card.dataset.theme
+          );
+
+        }
+
+      }
+    );
+
+  });
+
+
+if (modalClose) {
+
+  modalClose.addEventListener(
+    'click',
+    closeThemeModal
+  );
+
+}
+
+
 if (themeModal) {
-  themeModal.addEventListener('click', (e) => {
-    if (e.target === themeModal) closeThemeModal();
-  });
-}
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeThemeModal();
-});
 
-// Gallery lightbox — click a photo to view it full-size
-const lightbox = document.getElementById('gallery-lightbox');
-const lightboxImage = document.getElementById('lightbox-image');
-const lightboxClose = document.getElementById('lightbox-close');
+  themeModal.addEventListener(
+    'click',
+    (e) => {
+
+      if (
+        e.target === themeModal
+      ) {
+        closeThemeModal();
+      }
+
+    }
+  );
+
+}
+
+
+// Escape key for theme modal
+document.addEventListener(
+  'keydown',
+  (e) => {
+
+    if (e.key === 'Escape') {
+      closeThemeModal();
+    }
+
+  }
+);
+
+
+// =====================================================
+// GALLERY LIGHTBOX
+// =====================================================
+
+const lightbox =
+  document.getElementById(
+    'gallery-lightbox'
+  );
+
+const lightboxImage =
+  document.getElementById(
+    'lightbox-image'
+  );
+
+const lightboxClose =
+  document.getElementById(
+    'lightbox-close'
+  );
+
 
 function openLightbox(src, alt) {
-  if (!lightbox) return;
-  lightboxImage.src = src;
-  lightboxImage.alt = alt || '';
-  lightbox.classList.add('open');
-  lightbox.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
+
+  if (!lightbox || !lightboxImage) {
+    return;
+  }
+
+  lightboxImage.src =
+    src;
+
+  lightboxImage.alt =
+    alt || '';
+
+  lightbox.classList.add(
+    'open'
+  );
+
+  lightbox.setAttribute(
+    'aria-hidden',
+    'false'
+  );
+
+  document.body.style.overflow =
+    'hidden';
 }
+
 
 function closeLightbox() {
-  if (!lightbox) return;
-  lightbox.classList.remove('open');
-  lightbox.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+
+  if (!lightbox) {
+    return;
+  }
+
+  lightbox.classList.remove(
+    'open'
+  );
+
+  lightbox.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+  document.body.style.overflow =
+    '';
 }
 
-document.querySelectorAll('.gallery-item').forEach((item) => {
-  item.addEventListener('click', () => {
-    if (item.classList.contains('missing')) return; // no photo to show yet
-    const img = item.querySelector('img');
-    openLightbox(img.src, img.alt);
-  });
-});
 
-if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+// Gallery items
+document
+  .querySelectorAll('.gallery-item')
+  .forEach((item) => {
+
+    item.addEventListener(
+      'click',
+      () => {
+
+        if (
+          item.classList.contains(
+            'missing'
+          )
+        ) {
+          return;
+        }
+
+        const img =
+          item.querySelector('img');
+
+        if (!img) {
+          return;
+        }
+
+        openLightbox(
+          img.src,
+          img.alt
+        );
+
+      }
+    );
+
+  });
+
+
+if (lightboxClose) {
+
+  lightboxClose.addEventListener(
+    'click',
+    closeLightbox
+  );
+
+}
+
+
 if (lightbox) {
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
+
+  lightbox.addEventListener(
+    'click',
+    (e) => {
+
+      if (
+        e.target === lightbox
+      ) {
+        closeLightbox();
+      }
+
+    }
+  );
+
 }
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeLightbox();
-});
+
+
+// Escape key for lightbox
+document.addEventListener(
+  'keydown',
+  (e) => {
+
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+
+  }
+);
